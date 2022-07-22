@@ -181,11 +181,10 @@ def main():
         
         url = f"https://www.amazon.{country}/dp/{asin}"
         a = r.get(url, headers=headers)
-        # print(a.content)
+    
         if a.status_code == 200:
-            to_json.append(scrape(a.content, url, headers))
             try:
-                pass
+                to_json.append(scrape(a.content, url, headers))
             except:
                 # traceback.print_exc()
                 print(headers['user-agent'])
